@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-{% spaceless %}
+{% apply spaceless %}
 <checkstyle version="1.0.0">
     {% for path, data in relativePathToDataMap %}
         <file name="{{ path }}">
@@ -12,4 +12,4 @@
         </file>
     {% endfor %}
 </checkstyle>
-{% endspaceless %}
+{% endapply %}

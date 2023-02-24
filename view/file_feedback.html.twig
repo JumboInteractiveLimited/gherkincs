@@ -14,7 +14,7 @@
     </header>
     <h1><small>{{ dataMap.directory }}</small>{{ dataMap.name }}</h1>
     {# Per-file #}
-    {% spaceless %}
+    {% apply spaceless %}
         {% set tokenFeedback = feedbackMap.get(0) %}
 
         {% if tokenFeedback %}
@@ -33,7 +33,7 @@
                 </ul>
             </article>
         {% endif %}
-    {% endspaceless %}
+    {% endapply %}
     <div class="code">
         {# Per-line feedback #}
         {% for token in feedbackMap.tokenList %}
@@ -42,7 +42,7 @@
             <div class="line {% if tokenFeedback %}warning{% endif %}" style="" data-type="{{ token.className | lower }}">
                 <div class="line-no">{{ token.id }}</div>
                 <div class="token {% if not tokenFeedback %}ignored{% endif %}">{{ token.rawContent }}</div>
-                {% spaceless %}
+                {% apply spaceless %}
                     {% if tokenFeedback %}
                         <article class="notes">
                             <h2>
@@ -56,12 +56,12 @@
                             </ul>
                         </article>
                     {% endif %}
-                {% endspaceless %}
+                {% endapply %}
             </div>
         {% endfor %}
     </div>
 </article>
-{% spaceless %}
+{% apply spaceless %}
 <script>
 window.onload = function () {
     'use strict';
@@ -213,6 +213,6 @@ window.onload = function () {
     }
 };
 </script>
-{% endspaceless %}
+{% endapply %}
 </body>
 </html>
